@@ -1,0 +1,5 @@
+@copyright  T.Dervaux, C.Guyomard, F.Rebaudo all licences
+
+@authors T.Dervaux, C.Guyomard, F.Rebaudo
+
+@version 1.0
