@@ -1,27 +1,36 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * @Copyright  T.Dervaux, C.Guyomard, F.Rebaudo all licences
+ * @Authors T.Dervaux, C.Guyomard, F.Rebaudo
+ * @Version 1.0
  */
 package eu.telecomnancy.workerejb;
 
 import eu.telecomnancy.beans.Task;
-import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
 
 /**
+ * Stateless EJB without interface Represent a Worker that execute a Task
  *
- * @author Terry
+ * @author TODO
  */
 @Stateless
 @LocalBean
 public class WorkerSessionBean {
 
+    /**
+     * Business methode that execute a Task
+     *
+     * @param task
+     */
     public void doWork(Task task) {
-        Thread.sleep(task.getTime()*1000);
+        try {
+            Thread.sleep(task.getTime() * 1000);
+        } catch (InterruptedException e) {
+            System.out.println("eu.telecomnancy.workerejb.WorkerSessionBean.doWork()");
+            e.printStackTrace();
+        }
+
     }
-    
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method")
-    
+
 }
