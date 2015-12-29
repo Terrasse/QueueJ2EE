@@ -1,12 +1,10 @@
 package eu.telecomnancy.beans;
 
 /**
- * @Copyright  T.Dervaux, C.Guyomard, F.Rebaudo all licences
+ * @Copyright T.Dervaux, C.Guyomard, F.Rebaudo all licences
  * @Authors T.Dervaux, C.Guyomard, F.Rebaudo
  * @Version 1.0
  */
-
-
 import java.io.Serializable;
 
 /**
@@ -20,6 +18,8 @@ public class Task implements Serializable {
      * execution time in sec
      */
     private int time;
+
+    private int id;
 
     /**
      * Constructor to create a new Task (execution time = 0)
@@ -44,7 +44,10 @@ public class Task implements Serializable {
      * @param newTimeString String time in sec
      */
     public Task(String newTimeString) {
-        this.time = Integer.parseInt(newTimeString);
+        String[] r = newTimeString.split("%%");
+
+        this.time = Integer.parseInt(r[0]);
+        this.id = Integer.parseInt(r[1]);
     }
 
     /**
@@ -72,6 +75,14 @@ public class Task implements Serializable {
      */
     public void setTime(int time) {
         this.time = time;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
 }

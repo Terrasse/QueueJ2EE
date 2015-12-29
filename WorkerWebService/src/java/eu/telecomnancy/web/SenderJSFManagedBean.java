@@ -45,7 +45,8 @@ public class SenderJSFManagedBean {
     }
 
     public void send() {
-        sendJMSMessageToSenderQueue(this.message);
+        int expectedId = (int) (Math.random() * 100000);
+        sendJMSMessageToSenderQueue(this.message + "%%" + expectedId);
         System.out.println("Message : " + this.message);
     }
 
