@@ -1,16 +1,20 @@
+package eu.telecomnancy.beans;
+
 /**
  * @Copyright  T.Dervaux, C.Guyomard, F.Rebaudo all licences
  * @Authors T.Dervaux, C.Guyomard, F.Rebaudo
  * @Version 1.0
  */
-package eu.telecomnancy.beans;
+
+
+import java.io.Serializable;
 
 /**
  * Class Task reprent a Task
  *
  * @author Terry
  */
-public class Task {
+public class Task implements Serializable {
 
     /**
      * execution time in sec
@@ -26,12 +30,30 @@ public class Task {
     }
 
     /**
-     * Constructor to create a new Task
+     * Constructor to create a new Task with a int
      *
      * @param newTime time in sec
      */
     public Task(int newTime) {
         this.time = newTime;
+    }
+
+    /**
+     * Constructor to create a new Task with a String(UTF-8)
+     *
+     * @param newTimeString String time in sec
+     */
+    public Task(String newTimeString) {
+        this.time = Integer.parseInt(newTimeString);
+    }
+
+    /**
+     * Constructor to create a new Task with an other Task
+     *
+     * @param otherTask
+     */
+    public Task(Task otherTask) {
+        this.time = otherTask.getTime();
     }
 
     /**

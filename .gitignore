@@ -13,3 +13,5 @@ hs_err_pid*
 
 # netbeans build
 target/
+WorkerWebService/build/
+*build.xml

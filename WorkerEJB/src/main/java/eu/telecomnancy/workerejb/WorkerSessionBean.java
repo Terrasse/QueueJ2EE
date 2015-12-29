@@ -1,9 +1,11 @@
+package eu.telecomnancy.workerejb;
+
 /**
  * @Copyright  T.Dervaux, C.Guyomard, F.Rebaudo all licences
  * @Authors T.Dervaux, C.Guyomard, F.Rebaudo
  * @Version 1.0
  */
-package eu.telecomnancy.workerejb;
+
 
 import eu.telecomnancy.beans.Task;
 import javax.ejb.LocalBean;
@@ -25,7 +27,9 @@ public class WorkerSessionBean {
      */
     public void doWork(Task task) {
         try {
+            System.out.println("Start executing Task");
             Thread.sleep(task.getTime() * 1000);
+            System.out.println("Task done !");
         } catch (InterruptedException e) {
             System.out.println("eu.telecomnancy.workerejb.WorkerSessionBean.doWork()");
             e.printStackTrace();
