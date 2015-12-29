@@ -6,6 +6,7 @@
 package eu.telecomnancy.web;
 
 import javax.ejb.ActivationConfigProperty;
+import javax.ejb.EJB;
 import javax.ejb.MessageDriven;
 import javax.jms.JMSException;
 import javax.jms.Message;
@@ -26,6 +27,9 @@ import javax.jms.TextMessage;
 
 public class ReceiverMessageBean implements MessageListener {
 
+    @EJB
+    Synchronization sync;
+
     public ReceiverMessageBean() {
     }
 
@@ -34,6 +38,9 @@ public class ReceiverMessageBean implements MessageListener {
         try {
             TextMessage tm = (TextMessage) message;
             System.out.println("Task (" + tm.getText() + ") : done ! ");
+            String[] message_parsed = tm.getText().split("%%");
+            sync.setId(Integer.valueOf(message_parsed[0]));
+            sync.setDuration(Long.valueOf(message_parsed[1]));
         } catch (JMSException e) {
             e.printStackTrace();
         }

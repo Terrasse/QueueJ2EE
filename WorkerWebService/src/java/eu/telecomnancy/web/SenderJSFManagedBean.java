@@ -6,6 +6,7 @@
 package eu.telecomnancy.web;
 
 import javax.annotation.Resource;
+import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -21,6 +22,9 @@ import javax.jms.Queue;
 @RequestScoped
 public class SenderJSFManagedBean {
 
+    @EJB
+    Synchronization sync;
+
     @Resource(mappedName = "jms/SenderQueue")
     private Queue senderQueue;
 
@@ -29,6 +33,16 @@ public class SenderJSFManagedBean {
     private JMSContext context;
 
     private String message;
+
+    private String result = "Waiting for task";
+
+    public String getResult() {
+        return result;
+    }
+
+    public void setResult(String result) {
+        this.result = result;
+    }
 
     /**
      * Creates a new instance of SenderJSFManagedBean
@@ -46,8 +60,15 @@ public class SenderJSFManagedBean {
 
     public void send() {
         int expectedId = (int) (Math.random() * 100000);
-        sendJMSMessageToSenderQueue(this.message + "%%" + expectedId);
-        System.out.println("Message : " + this.message);
+        sendJMSMessageToSenderQueue(message + "%%" + expectedId + "%%" + System.currentTimeMillis() + "%%0");
+        while (sync.getId() != expectedId) {
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        this.result = "Work(id=" + sync.getId() + ";workload=" + message + "ms) -> done in " + sync.getDuration() + " ms";
     }
 
     private void sendJMSMessageToSenderQueue(String messageData) {

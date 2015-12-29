@@ -6,13 +6,18 @@
         <title>Sender</title>
     </h:head>
     <h:body>
-       JMS Message Producer
+        <h1>Task creation</h1>
         <h:form>
-            <h:outputLabel value="Message: " for="message"/>
-            <h:inputText id="message" value="#{senderJSFManagedBean.message}"/>
-            <h:commandButton value="Send Message" action="#{senderJSFManagedBean.send}"/>
+            <h:outputLabel value="Workload : " for="message"/>
+            <h:inputText id="message" value="#{senderJSFManagedBean.message}"/>ms
+            <h:commandButton value="Send Task" action="#{senderJSFManagedBean.send}"/>
             <h:messages globalOnly="true"/>
+            
         </h:form> 
+       <br></br>
+       <h1>Task status</h1>
+       <br></br>
+       <h:outputText value="#{senderJSFManagedBean.result}"/> 
     </h:body>
 </html>
 

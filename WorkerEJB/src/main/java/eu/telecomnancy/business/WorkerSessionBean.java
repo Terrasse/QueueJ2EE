@@ -1,4 +1,4 @@
-package eu.telecomnancy.workerejb;
+package eu.telecomnancy.business;
 
 /**
  * @Copyright T.Dervaux, C.Guyomard, F.Rebaudo all licences
@@ -39,11 +39,11 @@ public class WorkerSessionBean {
         try {
             System.out.println("Start executing Task");
 
-            Thread.sleep(task.getTime() * 1000);
-            sendJMSMessageToCallbackQueue("" + task.getId());
+            Thread.sleep(task.getWorkload());
+            task.setTime_end(System.currentTimeMillis());
+            sendJMSMessageToCallbackQueue(task.getId() + "%%" + TaskBusiness.processingTime(task));
             System.out.println("Task done !");
         } catch (InterruptedException e) {
-            System.out.println("eu.telecomnancy.workerejb.WorkerSessionBean.doWork()");
             e.printStackTrace();
         }
 

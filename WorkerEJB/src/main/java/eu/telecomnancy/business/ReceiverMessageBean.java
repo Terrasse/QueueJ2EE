@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package eu.telecomnancy.queue;
+package eu.telecomnancy.business;
 
 import eu.telecomnancy.beans.Task;
-import eu.telecomnancy.workerejb.WorkerSessionBean;
 import javax.ejb.ActivationConfigProperty;
 import javax.ejb.EJB;
 import javax.ejb.MessageDriven;

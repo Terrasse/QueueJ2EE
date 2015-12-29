@@ -15,66 +15,51 @@ import java.io.Serializable;
 public class Task implements Serializable {
 
     /**
-     * execution time in sec
+     * execution workload in sec
      */
-    private int time;
+    private int workload;
 
     private int id;
 
+    private long time_start;
+
+    private long time_end;
+
     /**
-     * Constructor to create a new Task (execution time = 0)
+     * Constructor to create a new Task (execution workload = 0)
      *
      */
     public Task() {
-        this.time = 0;
+        this.workload = 0;
     }
 
     /**
      * Constructor to create a new Task with a int
      *
-     * @param newTime time in sec
+     * @param duration workload in sec
      */
-    public Task(int newTime) {
-        this.time = newTime;
+    public Task(int id, int duration, int time_start, int time_end) {
+        this.workload = duration;
+        this.id = id;
+        this.time_end = time_end;
+        this.time_start = time_start;
     }
 
     /**
      * Constructor to create a new Task with a String(UTF-8)
      *
-     * @param newTimeString String time in sec
+     * @param newTimeString String formatted workload%%id%%time_start%%time_end
      */
     public Task(String newTimeString) {
+
         String[] r = newTimeString.split("%%");
 
-        this.time = Integer.parseInt(r[0]);
+        this.workload = Integer.parseInt(r[0]);
         this.id = Integer.parseInt(r[1]);
-    }
+        this.time_start = Long.parseLong(r[2]);
+        this.time_end = Long.parseLong(r[3]);
 
-    /**
-     * Constructor to create a new Task with an other Task
-     *
-     * @param otherTask
-     */
-    public Task(Task otherTask) {
-        this.time = otherTask.getTime();
-    }
-
-    /**
-     * Getter time of the Task
-     *
-     * @return time in sec
-     */
-    public int getTime() {
-        return time;
-    }
-
-    /**
-     * Setter time of the Task
-     *
-     * @param time in sec
-     */
-    public void setTime(int time) {
-        this.time = time;
+        System.out.println("eu.telecomnancy.business.WorkerSessionBean.doWork() : TOTOTOOTOTOTOTO");
     }
 
     public int getId() {
@@ -85,4 +70,37 @@ public class Task implements Serializable {
         this.id = id;
     }
 
+    /**
+     * Getter workload of the Task
+     *
+     * @return workload in ms
+     */
+    public int getWorkload() {
+        return workload;
+    }
+
+    /**
+     * Setter workload of the Task
+     *
+     * @param time in ms
+     */
+    public void setWorkload(int workload) {
+        this.workload = workload;
+    }
+
+    public long getTime_start() {
+        return time_start;
+    }
+
+    public void setTime_start(long time_start) {
+        this.time_start = time_start;
+    }
+
+    public long getTime_end() {
+        return time_end;
+    }
+
+    public void setTime_end(long time_end) {
+        this.time_end = time_end;
+    }
 }
