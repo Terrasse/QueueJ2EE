@@ -1,7 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * @Copyright T.Dervaux, C.Guyomard, F.Rebaudo all licences
+ * @Authors T.Dervaux, C.Guyomard, F.Rebaudo
+ * @Version 1.0
  */
 package eu.telecomnancy.webservice;
 
@@ -13,10 +13,6 @@ import javax.jms.Message;
 import javax.jms.MessageListener;
 import javax.jms.TextMessage;
 
-/**
- *
- * @author Terry
- */
 @MessageDriven(activationConfig = {
     @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Topic"),
     @ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "jms/CallbackQueue"),

@@ -17,7 +17,7 @@ import javax.jms.Topic;
 /**
  * Stateless EJB without interface Represent a Worker that execute a Task
  *
- * @author TODO
+ * @author T.Dervaux, C.Guyomard, F.Rebaudo
  */
 @Stateful
 @LocalBean

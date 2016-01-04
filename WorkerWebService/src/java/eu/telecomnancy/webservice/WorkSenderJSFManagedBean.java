@@ -1,7 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * @Copyright T.Dervaux, C.Guyomard, F.Rebaudo all licences
+ * @Authors T.Dervaux, C.Guyomard, F.Rebaudo
+ * @Version 1.0
  */
 package eu.telecomnancy.webservice;
 
@@ -14,10 +14,6 @@ import javax.jms.JMSConnectionFactory;
 import javax.jms.JMSContext;
 import javax.jms.Queue;
 
-/**
- *
- * @author Terry
- */
 @Named(value = "senderJSFManagedBean")
 @RequestScoped
 public class WorkSenderJSFManagedBean {
