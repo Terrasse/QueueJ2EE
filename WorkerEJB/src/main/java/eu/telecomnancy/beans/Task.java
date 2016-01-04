@@ -5,24 +5,31 @@ package eu.telecomnancy.beans;
  * @Authors T.Dervaux, C.Guyomard, F.Rebaudo
  * @Version 1.0
  */
-import java.io.Serializable;
-
 /**
  * Class Task reprent a Task
  *
- * @author Terry
+ * @author T.Dervaux, C.Guyomard, F.Rebaudo
  */
-public class Task implements Serializable {
+public class Task {
 
     /**
      * execution workload in sec
      */
     private int workload;
 
+    /**
+     * unique identifier
+     */
     private int id;
 
+    /**
+     * starting time
+     */
     private long time_start;
 
+    /**
+     * ending time
+     */
     private long time_end;
 
     /**
@@ -50,9 +57,9 @@ public class Task implements Serializable {
      *
      * @param newTimeString String formatted workload%%id%%time_start%%time_end
      */
-    public Task(String newTimeString) {
+    public Task(String task_string) {
 
-        String[] r = newTimeString.split("%%");
+        String[] r = task_string.split("%%");
 
         this.workload = Integer.parseInt(r[0]);
         this.id = Integer.parseInt(r[1]);

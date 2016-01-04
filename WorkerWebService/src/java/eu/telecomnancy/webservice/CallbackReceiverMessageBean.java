@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package eu.telecomnancy.web;
+package eu.telecomnancy.webservice;
 
 import javax.ejb.ActivationConfigProperty;
 import javax.ejb.EJB;
@@ -25,12 +25,12 @@ import javax.jms.TextMessage;
     @ActivationConfigProperty(propertyName = "subscriptionName", propertyValue = "jms/CallbackQueue")
 })
 
-public class ReceiverMessageBean implements MessageListener {
+public class CallbackReceiverMessageBean implements MessageListener {
 
     @EJB
-    Synchronization sync;
+    SynchronizationSingleton sync;
 
-    public ReceiverMessageBean() {
+    public CallbackReceiverMessageBean() {
     }
 
     @Override

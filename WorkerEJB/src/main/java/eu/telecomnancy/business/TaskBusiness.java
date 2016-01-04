@@ -7,10 +7,6 @@ package eu.telecomnancy.business;
 
 import eu.telecomnancy.beans.Task;
 
-/**
- *
- * @author Terry
- */
 public class TaskBusiness {
 
     /**

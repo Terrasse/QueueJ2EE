@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package eu.telecomnancy.web;
+package eu.telecomnancy.webservice;
 
 import javax.annotation.Resource;
 import javax.ejb.EJB;
@@ -20,10 +20,10 @@ import javax.jms.Queue;
  */
 @Named(value = "senderJSFManagedBean")
 @RequestScoped
-public class SenderJSFManagedBean {
+public class WorkSenderJSFManagedBean {
 
     @EJB
-    Synchronization sync;
+    SynchronizationSingleton sync;
 
     @Resource(mappedName = "jms/SenderQueue")
     private Queue senderQueue;
@@ -47,7 +47,7 @@ public class SenderJSFManagedBean {
     /**
      * Creates a new instance of SenderJSFManagedBean
      */
-    public SenderJSFManagedBean() {
+    public WorkSenderJSFManagedBean() {
     }
 
     public String getMessage() {

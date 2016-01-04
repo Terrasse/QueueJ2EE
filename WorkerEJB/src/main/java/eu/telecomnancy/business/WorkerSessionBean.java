@@ -1,10 +1,10 @@
-package eu.telecomnancy.business;
-
 /**
  * @Copyright T.Dervaux, C.Guyomard, F.Rebaudo all licences
  * @Authors T.Dervaux, C.Guyomard, F.Rebaudo
  * @Version 1.0
  */
+package eu.telecomnancy.business;
+
 import eu.telecomnancy.beans.Task;
 import javax.annotation.Resource;
 import javax.ejb.LocalBean;

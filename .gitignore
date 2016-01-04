@@ -16,3 +16,6 @@ target/
 WorkerWebService/build/
 *build.xml
 /WorkerWebService/dist/
+
+
+~*
